@@ -1,0 +1,477 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f5f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Верхний слой header */
+        .header-top {
+            background-color: #f5e8d0;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0d5bd;
+        }
+        
+        .header-top-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        /* Логотип - только картинка */
+        .logo {
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .logo-img {
+            margin-top: 7px;
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #8b7355;
+        }
+        
+        /* Расписание прижато к логотипу */
+        .schedule-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex: 1;
+        }
+        
+        .schedule {
+            font-size: 15px;
+            color: #5a4a3a;
+        }
+        
+        .schedule span {
+            margin-right: 20px;
+        }
+        
+        .schedule i {
+            margin-right: 5px;
+            color: #8b7355;
+        }
+        
+        .header-top-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-shrink: 0;
+        }
+        
+        .btn-ticket {
+            background-color: #8b7355;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+        
+        .btn-ticket:hover {
+            background-color: #756048;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box input {
+            padding: 8px 12px 8px 35px;
+            border: 1px solid #d0c6b0;
+            border-radius: 4px;
+            background-color: #fefcf7;
+            width: 200px;
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8b7355;
+        }
+        
+        /* Нижний слой header */
+        .header-bottom {
+            background-color: #e8e3dc;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .header-bottom-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #5a4a3a;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #8b7355;
+        }
+        
+        .nav-link i {
+            font-size: 12px;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            padding: 10px 0;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #5a4a3a;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f5f0e8;
+            color: #8b7355;
+        }
+        
+        /* Основной контент */
+        .main-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        /* Заголовок страницы новостей */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 2px solid #e0d5bd;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            color: #5a4a3a;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: #756048;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Сетка карточек новостей - 4 столбца */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        /* Карточки новостей */
+        .news-card-full {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .news-card-full:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .news-card-image {
+            height: 180px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .news-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card-full:hover .news-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .news-card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-card-date {
+            font-size: 14px;
+            color: #8b7355;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .news-card-title {
+            font-size: 22px;
+            color: #5a4a3a;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        .news-card-text {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .news-card-more {
+            color: #8b7355;
+            font-weight: 600;
+            font-size: 15px;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .news-card-more i {
+            transition: transform 0.3s;
+        }
+        
+        .news-card-full:hover .news-card-more i {
+            transform: translateX(5px);
+        }
+        
+        /* Кнопка "Все новости" */
+        .all-news-btn {
+            display: block;
+            width: 400px;
+            margin: 40px auto 60px;
+            padding: 15px 30px;
+            background-color: #8b7355;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .all-news-btn:hover {
+            background-color: #756048;
+        }
+        
+        /* Подписка на новости */
+        .news-subscribe {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .subscribe-title {
+            font-size: 24px;
+            color: #5a4a3a;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .subscribe-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .subscribe-form input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: 1px solid #d0c6b0;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+        
+        .subscribe-form button {
+            background-color: #8b7355;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 4px 4px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .subscribe-form button:hover {
+            background-color: #756048;
+        }
+        
+        footer {
+            background-color: #5a4a3a;
+            color: #f0ebe5;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 1100px) {
+            .news-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 850px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .schedule-container {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .schedule span {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            }
+            
+            .search-box input {
+                width: 180px;
+            }
+            
+            .subscribe-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .subscribe-form input,
+            .subscribe-form button {
+                border-radius: 4px;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header h1 {
+                font-size: 28px;
+            }
+            
+            .page-header p {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-top-right {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+            
+            .news-card-title {
+                font-size: 20px;
+            }
+        }
