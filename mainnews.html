@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости зоопарка "Шишки на Лампушке"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/mainnews.css">
+</head>
+<body>
+    <!-- Верхний слой header -->
+    <header class="header-top">
+        <div class="header-top-container">
+            <!-- Логотип - только картинка -->
+            <div class="logo">
+                <img src="pictures/kartinka.jpg" 
+                     alt="Логотип зоопарка" class="logo-img">
+            </div>
+            
+            <!-- Расписание прижато к логотипу -->
+            <div class="schedule-container">
+                <div class="schedule">
+                    <span><i class="far fa-clock"></i> Наш зоопарк открыт для Вас с 10:00 до 19:00</span>
+                    <span><i class="fas fa-ticket-alt"></i> Касса открыта с 10:00 до 18:00</span>
+                </div>
+                
+                <div class="header-top-right">
+                    <button class="btn-ticket"><i class="fas fa-shopping-cart"></i> Купить билет</button>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Поиск по сайту">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Нижний слой header -->
+    <header class="header-bottom">
+        <div class="header-bottom-container">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Животные <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Млекопитающие</a>
+                        <a href="#" class="dropdown-item">Птицы</a>
+                        <a href="#" class="dropdown-item">Рептилии</a>
+                        <a href="#" class="dropdown-item">Амфибии</a>
+                        <a href="#" class="dropdown-item">Рыбы</a>
+                        <a href="#" class="dropdown-item">Насекомые</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Посетителям <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Часы работы и цены</a>
+                        <a href="#" class="dropdown-item">Как добраться</a>
+                        <a href="#" class="dropdown-item">Правила посещения</a>
+                        <a href="#" class="dropdown-item">Экскурсии</a>
+                        <a href="#" class="dropdown-item">Питание на территории</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Специалистам <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Научные исследования</a>
+                        <a href="#" class="dropdown-item">Волонтерство</a>
+                        <a href="#" class="dropdown-item">Стажировки</a>
+                        <a href="#" class="dropdown-item">Конференции</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">О зоопарке <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">История зоопарка</a>
+                        <a href="#" class="dropdown-item">Миссия и цели</a>
+                        <a href="#" class="dropdown-item">Коллектив</a>
+                        <a href="#" class="dropdown-item">Достижения</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Контакты <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Адрес и телефон</a>
+                        <a href="#" class="dropdown-item">Обратная связь</a>
+                        <a href="#" class="dropdown-item">Реквизиты</a>
+                        <a href="#" class="dropdown-item">Вакансии</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- Основной контент -->
+    <main class="main-content">
+        <!-- Заголовок страницы новостей -->
+        <section class="page-header">
+            <h1>Новости зоопарка</h1>
+            <p>Будьте в курсе всех событий зоопарка "Шишки на Лампушке": рождение детенышей, открытие новых вольеров, специальные мероприятия и многое другое.</p>
+        </section>
+        
+        <!-- Сетка карточек новостей -->
+        <div class="news-grid">
+            <!-- Карточка 1 -->
+            <a href="news-detail-1.html" class="news-card-full">
+                <div class="news-card-image">
+                    <img src="pictures/kartinka.jpg" alt="Новый детеныш панды">
+                </div>
+                <div class="news-card-content">
+                    <div class="news-card-date">15 марта 2026</div>
+                    <h2 class="news-card-title">Рождение детеныша большой панды</h2>
+                    <p class="news-card-text">В нашем зоопарке произошло радостное событие - у пары больших панд Лулу и Бао-Бао родился детеныш. Малыш уже начал открывать глаза и активно питается.</p>
+                    <div class="news-card-more">Подробнее <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+            
+            <!-- Карточка 2 -->
+            <a href="news-detail-2.html" class="news-card-full">
+                <div class="news-card-image">
+                    <img src="pictures/kartinka.jpg" alt="Реконструкция вольера">
+                </div>
+                <div class="news-card-content">
+                    <div class="news-card-date">10 марта 2026</div>
+                    <h2 class="news-card-title">Завершена реконструкция вольера для хищных птиц</h2>
+                    <p class="news-card-text">Мы рады сообщить об окончании масштабной реконструкции вольера для хищных птиц. Теперь орлы, соколы и совы имеют больше пространства для полетов.</p>
+                    <div class="news-card-more">Подробнее <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+            
+            <!-- Карточка 3 -->
+            <a href="news-detail-3.html" class="news-card-full">
+                <div class="news-card-image">
+                    <img src="pictures/kartinka.jpg" alt="Ветеринарный осмотр">
+                </div>  
+                <div class="news-card-content">
+                    <div class="news-card-date">5 марта 2026</div>
+                    <h2 class="news-card-title">Плановый ветеринарный осмотр жирафов</h2>
+                    <p class="news-card-text">Наши жирафы Марсель и Жозефина прошли ежегодный плановый медицинский осмотр. Все показатели в норме, животные здоровы и активны.</p>
+                    <div class="news-card-more">Подробнее <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+            
+            <!-- Карточка 4 -->
+            <a href="news-detail-4.html" class="news-card-full">
+                <div class="news-card-image">
+                    <img src="pictures/kartinka.jpg" alt="Новый вид животных">
+                </div>
+                <div class="news-card-content">
+                    <div class="news-card-date">28 февраля 2026</div>
+                    <h2 class="news-card-title">В зоопарк прибыли новые обитатели - ленивцы</h2>
+                    <p class="news-card-content">
+                    <p class="news-card-text">Мы пополнили нашу коллекцию двумя милыми двупалыми ленивцами из Южной Америки. Теперь их можно наблюдать в павильоне "Тропический лес".</p>
+                    <div class="news-card-more">Подробнее <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+            
+            <!-- Карточка 5 -->
+            <a href="news-detail-5.html" class="news-card-full">
+                <div class="news-card-image">
+                    <img src="pictures/kartinka.jpg" alt="Экологическая акция">
+                </div>
+                <div class="news-card-content">
+                    <div class="news-card-date">20 февраля 2026</div>
+                    <h2 class="news-card-title">Экологическая акция "Чистый зоопарк"</h2>
+                    <p class="news-card-text">В минувшие выходные состоялась ежегодная экологическая акция по уборке территории зоопарка. В мероприятии приняли участие более 100 волонтеров.</p>
+                    <div class="news-card-more">Подробнее <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+            
+            <!-- Карточка 6 -->
+            <a href="news-detail-6.html" class="news-card-full">
+                <div class="news-card-image">
+                    <img src="pictures/kartinka.jpg" alt="Кормление бегемотов">
+                </div>
+                <div class="news-card-content">
+                    <div class="news-card-date">15 февраля 2026</div>
+                    <h2 class="news-card-title">Изменение времени открытого кормления бегемотов</h2>
+                    <p class="news-card-text">Обращаем внимание посетителей, что время открытого кормления бегемотов теперь в 13:00 вместо 14:00. Приходите наблюдать за этим увлекательным процессом!</p>
+                    <div class="news-card-more">Подробнее <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+            
+            <!-- Карточка 7 -->
+            <a href="news-detail-7.html" class="news-card-full">
+                <div class="news-card-image">
+                    <img src="pictures/kartinka.jpg" alt="Новая экспозиция">
+                </div>
+                <div class="news-card-content">
+                    <div class="news-card-date">10 февраля 2026</div>
+                    <h2 class="news-card-title">Открытие новой экспозиции "Ночной мир"</h2>
+                    <p class="news-card-text">Мы открыли уникальную экспозицию, посвященную ночным животным. В специально оборудованных затемненных помещениях можно наблюдать за жизнью летучих мышей, лемуров и других ночных обитателей.</p>
+                    <div class="news-card-more">Подробнее <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+            
+            <!-- Карточка 8 -->
+            <a href="news-detail-8.html" class="news-card-full">
+                <div class="news-card-image">
+                    <img src="pictures/kartinka.jpg" alt="Детский конкурс">
+                </div>
+                <div class="news-card-content">
+                    <div class="news-card-date">5 февраля 2026</div>
+                    <h2 class="news-card-title">Объявляем конкурс детских рисунков "Мой любимый обитатель зоопарка"</h2>
+                    <p class="news-card-text">Приглашаем детей от 5 до 12 лет принять участие в ежегодном конкурсе рисунков. Победители получат годовые абонементы в зоопарк и другие призы.</p>
+                    <div class="news-card-more">Подробнее <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Кнопка "Все новости" -->
+        <a href="index.html" class="all-news-btn">                <i class="fas fa-arrow-left"></i>
+                <span>Вернуться к списку новостей</span></a>
+        
+        <!-- Подписка на новости -->
+        <section class="news-subscribe">
+            <h2 class="subscribe-title">Подпишитесь на новости зоопарка</h2>
+            <p>Будьте первыми в курсе всех событий! Получайте уведомления о новых обитателях, специальных мероприятиях и акциях.</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Ваш email" required>
+                <button type="submit">Подписаться</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <p>© 2026 Зоопарк "Шишки на Лампушке". Все права защищены.</p>
+            <p>Контактный телефон: +7 (XXX) XXX-XX-XX</p>
+            <p>Электронная почта: info@zoo-shishki.ru</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Простой скрипт для поиска
+        document.querySelector('.search-box input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                alert('Поиск: ' + this.value);
+                this.value = '';
+            }
+        });
+        
+        // Обработка кнопки покупки билета
+        document.querySelector('.btn-ticket').addEventListener('click', function() {
+            alert('Переход на страницу покупки билетов');
+        });
+        
+        // Обработка подписки на новости
+        document.querySelector('.subscribe-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert('Спасибо за подписку! На адрес ' + email + ' отправлено письмо для подтверждения.');
+            this.querySelector('input').value = '';
+        });
+        
+        // Все карточки уже являются ссылками, поэтому дополнительная обработка не нужна
+        // Можно добавить анимацию при клике на карточку
+        document.querySelectorAll('.news-card-full').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Можно добавить дополнительную анимацию перед переходом
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

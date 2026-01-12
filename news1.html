@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эдипов тамарин - Новости зоопарка "Шишки на Лампушке"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f5f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Верхний слой header */
+        .header-top {
+            background-color: #f5e8d0;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0d5bd;
+        }
+        
+        .header-top-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        /* Логотип - только картинка */
+        .logo {
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .logo-img {
+            margin-top: 7px;
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #8b7355;
+        }
+        
+        /* Расписание прижато к логотипу */
+        .schedule-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex: 1;
+        }
+        
+        .schedule {
+            font-size: 15px;
+            color: #5a4a3a;
+        }
+        
+        .schedule span {
+            margin-right: 20px;
+        }
+        
+        .schedule i {
+            margin-right: 5px;
+            color: #8b7355;
+        }
+        
+        .header-top-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-shrink: 0;
+        }
+        
+        .btn-ticket {
+            background-color: #8b7355;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-ticket:hover {
+            background-color: #756048;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box input {
+            padding: 8px 12px 8px 35px;
+            border: 1px solid #d0c6b0;
+            border-radius: 4px;
+            background-color: #fefcf7;
+            width: 200px;
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8b7355;
+        }
+        
+        /* Нижний слой header */
+        .header-bottom {
+            background-color: #e8e3dc;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .header-bottom-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #5a4a3a;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #8b7355;
+        }
+        
+        .nav-link i {
+            font-size: 12px;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            padding: 10px 0;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+        }
+        
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #5a4a3a;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f5f0e8;
+            color: #8b7355;
+        }
+        
+        /* Основной контент страницы новости */
+        .main-content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        /* Хлебные крошки */
+        .breadcrumbs {
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #8b7355;
+        }
+        
+        .breadcrumbs a {
+            color: #8b7355;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumbs a:hover {
+            color: #5a4a3a;
+            text-decoration: underline;
+        }
+        
+        .breadcrumbs span {
+            margin: 0 8px;
+        }
+        
+        /* Заголовок страницы */
+        .page-title {
+            font-size: 36px;
+            color: #5a4a3a;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* Информация о новости */
+        .news-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0d5bd;
+        }
+        
+        .news-date {
+            font-size: 16px;
+            color: #8b7355;
+            font-weight: 500;
+        }
+        
+        .news-category {
+            background-color: #8b7355;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* Главное фото новости */
+        .news-main-photo {
+            width: 100%;
+            height: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .news-main-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Контент новости */
+        .news-content {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .news-subtitle {
+            font-size: 28px;
+            color: #5a4a3a;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .news-text {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+        
+        .news-description {
+            background-color: #f8f5f0;
+            border-left: 4px solid #8b7355;
+            padding: 25px;
+            margin: 35px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .news-description h3 {
+            font-size: 22px;
+            color: #5a4a3a;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .news-description ul {
+            list-style-position: inside;
+            margin-left: 15px;
+        }
+        
+        .news-description li {
+            margin-bottom: 10px;
+            font-size: 17px;
+            color: #333;
+        }
+        
+        .news-facts {
+            background-color: #f0ebe5;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .news-facts h3 {
+            font-size: 22px;
+            color: #5a4a3a;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .news-facts p {
+            font-size: 17px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .divider {
+            height: 1px;
+            background-color: #ddd;
+            margin: 40px 0;
+        }
+        
+        /* Кнопка назад к новостям */
+        .back-to-news {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #8b7355;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-back:hover {
+            background-color: #756048;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-back i {
+            font-size: 20px;
+        }
+        
+        footer {
+            background-color: #5a4a3a;
+            color: #f0ebe5;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .news-main-photo {
+                height: 400px;
+            }
+            
+            .page-title {
+                font-size: 32px;
+            }
+            
+            .news-subtitle {
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .schedule-container {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .schedule span {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            }
+            
+            .news-main-photo {
+                height: 300px;
+            }
+            
+            .page-title {
+                font-size: 28px;
+            }
+            
+            .news-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .news-content {
+                padding: 25px;
+            }
+            
+            .news-subtitle {
+                font-size: 22px;
+            }
+            
+            .news-text {
+                font-size: 16px;
+            }
+            
+            .search-box input {
+                width: 180px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-top-right {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+            
+            .news-main-photo {
+                height: 250px;
+            }
+            
+            .page-title {
+                font-size: 24px;
+            }
+            
+            .news-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Верхний слой header -->
+    <header class="header-top">
+        <div class="header-top-container">
+            <!-- Логотип - только картинка -->
+            <div class="logo">
+                <img src="kartinka.jpg" 
+                     alt="Логотип зоопарка" class="logo-img">
+            </div>
+            
+            <!-- Расписание прижато к логотипу -->
+            <div class="schedule-container">
+                <div class="schedule">
+                    <span><i class="far fa-clock"></i> Наш зоопарк открыт для Вас с 10:00 до 19:00</span>
+                    <span><i class="fas fa-ticket-alt"></i> Касса открыта с 10:00 до 18:00</span>
+                </div>
+                
+                <div class="header-top-right">
+                    <button class="btn-ticket"><i class="fas fa-shopping-cart"></i> Купить билет</button>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Поиск по сайту">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Нижний слой header -->
+    <header class="header-bottom">
+        <div class="header-bottom-container">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Животные <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Млекопитающие</a>
+                        <a href="#" class="dropdown-item">Птицы</a>
+                        <a href="#" class="dropdown-item">Рептилии</a>
+                        <a href="#" class="dropdown-item">Амфибии</a>
+                        <a href="#" class="dropdown-item">Рыбы</a>
+                        <a href="#" class="dropdown-item">Насекомые</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Посетителям <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Часы работы и цены</a>
+                        <a href="#" class="dropdown-item">Как добраться</a>
+                        <a href="#" class="dropdown-item">Правила посещения</a>
+                        <a href="#" class="dropdown-item">Экскурсии</a>
+                        <a href="#" class="dropdown-item">Питание на территории</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Специалистам <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Научные исследования</a>
+                        <a href="#" class="dropdown-item">Волонтерство</a>
+                        <a href="#" class="dropdown-item">Стажировки</a>
+                        <a href="#" class="dropdown-item">Конференции</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">О зоопарке <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">История зоопарка</a>
+                        <a href="#" class="dropdown-item">Миссия и цели</a>
+                        <a href="#" class="dropdown-item">Коллектив</a>
+                        <a href="#" class="dropdown-item">Достижения</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Контакты <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Адрес и телефон</a>
+                        <a href="#" class="dropdown-item">Обратная связь</a>
+                        <a href="#" class="dropdown-item">Реквизиты</a>
+                        <a href="#" class="dropdown-item">Вакансии</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- Основной контент страницы новости -->
+    <main class="main-content">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <a href="index.html">Главная</a> <span>/</span>
+            <a href="#">Новости</a> <span>/</span>
+            <span>Эдипов тамарин</span>
+        </div>
+        
+        <!-- Заголовок страницы -->
+        <h1 class="page-title">Эдипов тамарин (лат. Saguinus oedipus) — вид игрунковых обезьян из рода тамаринов</h1>
+        
+        <!-- Информация о новости -->
+        <div class="news-info">
+            <div class="news-date"><i class="far fa-calendar-alt"></i> 12 января 2026</div>
+            <div class="news-category">Животные</div>
+        </div>
+        
+        <!-- Главное фото новости -->
+        <div class="news-main-photo">
+            <img src="debil.jpg" alt="Эдипов тамарин">
+        </div>
+        
+        <!-- Контент новости -->
+        <div class="news-content">
+            <p class="news-text">В нашем зоопарке радостное событие — у пары эдиповых тамаринов появилось потомство! Эти удивительные приматы, также известные как хохлатые тамарины, являются одними из самых интересных и редких обитателей нашего зоопарка.</p>
+            
+            <div class="news-description">
+                <h3>Описание:</h3>
+                <ul>
+                    <li>Длина тела — от 21 до 26 см, хвост — от 33 до 41 см.</li>
+                    <li>Масса тела — от 300 до 450 г.</li>
+                    <li>Окраска шерсти на спине и плечах — коричневого цвета, брюхо и конечности — белёсо-жёлтого цвета.</li>
+                    <li>На пальцах рук и ног (за исключением большого пальца) вместо ногтей — когти.</li>
+                    <li>Длинный хвост рыжий у основания, чёрный на конце.</li>
+                    <li>Отличительный признак вида — длинные, белые волосы, свисающие с головы до плеч.</li>
+                </ul>
+            </div>
+            
+            <p class="news-text">Эдиповы тамарины живут в нашем зоопарке уже более трех лет. За это время наши специалисты создали для них условия, максимально приближенные к естественной среде обитания. Особое внимание уделяется рациону питания и социальному взаимодействию этих социальных животных.</p>
+            
+            <div class="divider"></div>
+            
+            <div class="news-facts">
+                <h3>Интересные факты:</h3>
+                <p><strong>Ареал обитания:</strong> Эдиповы тамарины обитают исключительно в северо-западной Колумбии, в районе у побережья Карибского моря. Естественная среда обитания — тропические дождевые и сухие леса, при этом животные предпочитают леса с густым подлеском.</p>
+                
+                <p><strong>Социальное поведение:</strong> Незваных гостей из других групп тамарины прогоняют, поднимая хвост и демонстрируя свой зад с гениталиями. Это уникальный способ защиты территории, характерный для этого вида.</p>
+                
+                <p><strong>Питание:</strong> Эдиповы тамарины питаются преимущественно насекомыми и фруктами, а также мелкими позвоночными животными и соком деревьев. В нашем зоопарке их рацион тщательно сбалансирован и включает все необходимые питательные вещества.</p>
+            </div>
+            
+            <p class="news-text">Новорожденный тамарин находится под постоянным наблюдением наших специалистов. Родители демонстрируют прекрасные навыки заботы о потомстве. Посетители зоопарка могут наблюдать за этой удивительной семьей в вольере приматов с 10:00 до 17:00 ежедневно.</p>
+            
+            <p class="news-text">Эдиповы тамарины находятся под угрозой исчезновения в дикой природе из-за разрушения их естественной среды обитания. Наш зоопарк участвует в международной программе по сохранению этого вида, и рождение детеныша — важный шаг в этой работе.</p>
+        </div>
+        
+        <!-- Кнопка назад к новостям -->
+        <div class="back-to-news">
+            <a href="index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i>
+                <span>Вернуться к списку новостей</span>
+            </a>
+            </a>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <p>© 2023 Зоопарк "Шишки на Лампушке". Все права защищены.</p>
+            <p>Контактный телефон: +7 (XXX) XXX-XX-XX</p>
+            <p>Электронная почта: info@zoo-shishki.ru</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Простой скрипт для поиска
+        document.querySelector('.search-box input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                alert('Поиск: ' + this.value);
+                this.value = '';
+            }
+        });
+        
+        // Обработка кнопки покупки билета
+        document.querySelector('.btn-ticket').addEventListener('click', function() {
+            alert('Переход на страницу покупки билетов');
+        });
+    </script>
+</body>
+</html>
